@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket.io Demo</title>
+  </head>
+  <body>
+    <h1>Socket.io Demo</h1>
+    <p id="message"></p>
+
+    <!-- Include the Socket.io client library -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io(); //initializes the Socket.io client and connects it to your server
+
+      // Listen for a 'message' event from the server
+      socket.on("message", (data) => {
+        console.log(data);
+        document.getElementById("message").textContent = data;
+      });
+    </script>
+  </body>
+</html>
